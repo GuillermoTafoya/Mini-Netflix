@@ -17,9 +17,6 @@ public:
 
 private slots:
 
-    void on_PlayButton_clicked();
-
-    void on_Select_clicked();
 
 
 private:

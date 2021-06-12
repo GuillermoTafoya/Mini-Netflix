@@ -43,7 +43,16 @@ LIBS += -L"E:/MinGW/MinGW/lib" \
        -llibboost_wserialization
 
 
-INCLUDEPATH += "E:/Dev/Streaming/Streaming"
+INCLUDEPATH += \
+    "E:/Dev/Streaming/Streaming"
+    "E:/Dev/Streaming GUI/StreamingGUI/Assets/Icons"
+
+
+RESOURCES += \
+    resources.qrc
+
+DISTFILES += \
+    Perstfic.qss
 
 
 

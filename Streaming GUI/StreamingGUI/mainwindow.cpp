@@ -33,14 +33,16 @@ using string = std::string;
 Pelicula AntMan = Pelicula("Antman", "E:/Dev/Streaming/Streaming/assets/When It's OK to Violate Privacy.mp4",
         "Accion", 120, 4, "Un wey");
 
-int prueba = 0;
-
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+    //this->setWindowIcon(QIcon("netflix-seeklogo.com.svg"));
+    this->setWindowIcon(QIcon("E:/Dev/Streaming GUI/StreamingGUI/Assets/Icons/netflix.png"));
     ui->setupUi(this);
+    this->setWindowTitle("Metflix");
+
 
 
 }
@@ -55,19 +57,8 @@ MainWindow::~MainWindow()
 
 
 
-void MainWindow::on_PlayButton_clicked()
-{
-
-    AntMan.play();
 
 
-
-}
-
-
-void MainWindow::on_Select_clicked()
-{
-}
 
 
 

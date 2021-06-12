@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/assets">
+        <file>Assets/Icons/Copy.bmp</file>
+        <file>Assets/Icons/Cut.bmp</file>
+        <file>Assets/Icons/DeleteSticky.bmp</file>
+        <file>Assets/Icons/favicon.ico</file>
+        <file>Assets/Icons/Highlight.bmp</file>
+        <file>Assets/Icons/New.bmp</file>
+        <file>Assets/Icons/Open.bmp</file>
+        <file>Assets/Icons/Paste.bmp</file>
+        <file>Assets/Icons/Save.bmp</file>
+        <file>Assets/Icons/Sticky.bmp</file>
+        <file>Assets/Icons/Turtle.png</file>
+        <file>Assets/Icons/netflix.png</file>
+        <file>Assets/Icons/netflix-seeklogo.com.svg</file>
+    </qresource>
+</RCC>

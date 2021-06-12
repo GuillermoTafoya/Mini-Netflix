@@ -10,13 +10,13 @@
 #define UI_MAINWINDOW_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QAction>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QComboBox>
-#include <QtWidgets/QListView>
 #include <QtWidgets/QMainWindow>
+#include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
-#include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -24,42 +24,54 @@ QT_BEGIN_NAMESPACE
 class Ui_MainWindow
 {
 public:
+    QAction *actionNew_Serie;
+    QAction *actionNew_Season;
+    QAction *actionNew_Chapter;
+    QAction *actionNew_Movie;
     QWidget *centralwidget;
-    QPushButton *Select;
-    QPushButton *PlayButton;
-    QComboBox *comboBox;
-    QListView *listView;
     QMenuBar *menubar;
+    QMenu *menuFile;
     QStatusBar *statusbar;
+    QToolBar *toolBar;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
         MainWindow->resize(800, 600);
+        actionNew_Serie = new QAction(MainWindow);
+        actionNew_Serie->setObjectName(QString::fromUtf8("actionNew_Serie"));
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/assets/Assets/Icons/netflix-seeklogo.com.svg"), QSize(), QIcon::Normal, QIcon::Off);
+        actionNew_Serie->setIcon(icon);
+        actionNew_Season = new QAction(MainWindow);
+        actionNew_Season->setObjectName(QString::fromUtf8("actionNew_Season"));
+        actionNew_Chapter = new QAction(MainWindow);
+        actionNew_Chapter->setObjectName(QString::fromUtf8("actionNew_Chapter"));
+        actionNew_Movie = new QAction(MainWindow);
+        actionNew_Movie->setObjectName(QString::fromUtf8("actionNew_Movie"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        Select = new QPushButton(centralwidget);
-        Select->setObjectName(QString::fromUtf8("Select"));
-        Select->setGeometry(QRect(390, 180, 161, 31));
-        PlayButton = new QPushButton(centralwidget);
-        PlayButton->setObjectName(QString::fromUtf8("PlayButton"));
-        PlayButton->setGeometry(QRect(390, 250, 161, 31));
-        PlayButton->setStyleSheet(QString::fromUtf8(""));
-        comboBox = new QComboBox(centralwidget);
-        comboBox->setObjectName(QString::fromUtf8("comboBox"));
-        comboBox->setGeometry(QRect(350, 40, 75, 24));
-        listView = new QListView(centralwidget);
-        listView->setObjectName(QString::fromUtf8("listView"));
-        listView->setGeometry(QRect(20, 10, 256, 361));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
         menubar->setGeometry(QRect(0, 0, 800, 25));
+        menuFile = new QMenu(menubar);
+        menuFile->setObjectName(QString::fromUtf8("menuFile"));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
         MainWindow->setStatusBar(statusbar);
+        toolBar = new QToolBar(MainWindow);
+        toolBar->setObjectName(QString::fromUtf8("toolBar"));
+        MainWindow->addToolBar(Qt::TopToolBarArea, toolBar);
+
+        menubar->addAction(menuFile->menuAction());
+        menuFile->addAction(actionNew_Serie);
+        menuFile->addAction(actionNew_Season);
+        menuFile->addAction(actionNew_Chapter);
+        menuFile->addAction(actionNew_Movie);
+        toolBar->addAction(actionNew_Serie);
 
         retranslateUi(MainWindow);
 
@@ -69,8 +81,12 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        Select->setText(QCoreApplication::translate("MainWindow", "Select", nullptr));
-        PlayButton->setText(QCoreApplication::translate("MainWindow", "Play", nullptr));
+        actionNew_Serie->setText(QCoreApplication::translate("MainWindow", "New Serie", nullptr));
+        actionNew_Season->setText(QCoreApplication::translate("MainWindow", "New Season", nullptr));
+        actionNew_Chapter->setText(QCoreApplication::translate("MainWindow", "New Chapter", nullptr));
+        actionNew_Movie->setText(QCoreApplication::translate("MainWindow", "New Movie", nullptr));
+        menuFile->setTitle(QCoreApplication::translate("MainWindow", "File", nullptr));
+        toolBar->setWindowTitle(QCoreApplication::translate("MainWindow", "toolBar", nullptr));
     } // retranslateUi
 
 };
