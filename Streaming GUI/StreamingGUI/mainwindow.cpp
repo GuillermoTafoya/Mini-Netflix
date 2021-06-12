@@ -3,6 +3,7 @@
 
 #include <QAbstractItemModel>
 #include <QStringListModel>
+#include <QPixmap>
 
 #include <iostream>
 // std
@@ -41,7 +42,17 @@ MainWindow::MainWindow(QWidget *parent)
     //this->setWindowIcon(QIcon("netflix-seeklogo.com.svg"));
     this->setWindowIcon(QIcon("E:/Dev/Streaming GUI/StreamingGUI/Assets/Icons/netflix.png"));
     ui->setupUi(this);
+
+
     this->setWindowTitle("Metflix");
+
+    QPixmap pix("E:/Dev/Streaming GUI/StreamingGUI/Assets/Icons/Metflix.png");
+    //ui->label->setAlignment(Qt::AlignCenter);
+    int w = ui->label->width(), h = ui->label->height();
+    ui->label->setPixmap(pix.scaled(w,h,Qt::KeepAspectRatio)); //pix.scaled(250,250,Qt::KeepAspectRatio));
+
+
+
 
 
 

@@ -19,6 +19,8 @@ int main(int argc, char *argv[])
 
     QString styleSheet {file.readAll()};
 
+
+
     //setup stylesheet
 
     app.setStyleSheet(styleSheet);

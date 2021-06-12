@@ -12,9 +12,9 @@
 #include <QtCore/QVariant>
 #include <QtGui/QAction>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
-#include <QtWidgets/QMenu>
-#include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
@@ -29,8 +29,8 @@ public:
     QAction *actionNew_Chapter;
     QAction *actionNew_Movie;
     QWidget *centralwidget;
-    QMenuBar *menubar;
-    QMenu *menuFile;
+    QLabel *label;
+    QPushButton *OPEN;
     QStatusBar *statusbar;
     QToolBar *toolBar;
 
@@ -52,13 +52,13 @@ public:
         actionNew_Movie->setObjectName(QString::fromUtf8("actionNew_Movie"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
+        label = new QLabel(centralwidget);
+        label->setObjectName(QString::fromUtf8("label"));
+        label->setGeometry(QRect(251, 50, 280, 110));
+        OPEN = new QPushButton(centralwidget);
+        OPEN->setObjectName(QString::fromUtf8("OPEN"));
+        OPEN->setGeometry(QRect(351, 390, 80, 25));
         MainWindow->setCentralWidget(centralwidget);
-        menubar = new QMenuBar(MainWindow);
-        menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 800, 25));
-        menuFile = new QMenu(menubar);
-        menuFile->setObjectName(QString::fromUtf8("menuFile"));
-        MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
         MainWindow->setStatusBar(statusbar);
@@ -66,11 +66,6 @@ public:
         toolBar->setObjectName(QString::fromUtf8("toolBar"));
         MainWindow->addToolBar(Qt::TopToolBarArea, toolBar);
 
-        menubar->addAction(menuFile->menuAction());
-        menuFile->addAction(actionNew_Serie);
-        menuFile->addAction(actionNew_Season);
-        menuFile->addAction(actionNew_Chapter);
-        menuFile->addAction(actionNew_Movie);
         toolBar->addAction(actionNew_Serie);
 
         retranslateUi(MainWindow);
@@ -81,11 +76,12 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        actionNew_Serie->setText(QCoreApplication::translate("MainWindow", "New Serie", nullptr));
+        actionNew_Serie->setText(QCoreApplication::translate("MainWindow", "Nuevo", nullptr));
         actionNew_Season->setText(QCoreApplication::translate("MainWindow", "New Season", nullptr));
         actionNew_Chapter->setText(QCoreApplication::translate("MainWindow", "New Chapter", nullptr));
         actionNew_Movie->setText(QCoreApplication::translate("MainWindow", "New Movie", nullptr));
-        menuFile->setTitle(QCoreApplication::translate("MainWindow", "File", nullptr));
+        label->setText(QString());
+        OPEN->setText(QCoreApplication::translate("MainWindow", "OPEN", nullptr));
         toolBar->setWindowTitle(QCoreApplication::translate("MainWindow", "toolBar", nullptr));
     } // retranslateUi
 

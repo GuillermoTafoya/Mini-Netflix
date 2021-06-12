@@ -113,6 +113,7 @@ debug/qrc_resources.cpp: ../StreamingGUI/resources.qrc \
 		../StreamingGUI/Assets/Icons/Sticky.bmp \
 		../StreamingGUI/Assets/Icons/DeleteSticky.bmp \
 		../StreamingGUI/Assets/Icons/Highlight.bmp \
+		../StreamingGUI/Assets/Icons/Metflix.png \
 		../StreamingGUI/Assets/Icons/Copy.bmp \
 		../StreamingGUI/Assets/Icons/Cut.bmp \
 		../StreamingGUI/Assets/Icons/favicon.ico \
@@ -607,10 +608,6 @@ debug/mainwindow.o: ../StreamingGUI/mainwindow.cpp ../StreamingGUI/mainwindow.h 
 		../../../Qt/6.1.1/mingw81_64/include/QtGui/qguiapplication.h \
 		../../../Qt/6.1.1/mingw81_64/include/QtGui/qinputmethod.h \
 		../../../Qt/6.1.1/mingw81_64/include/QtCore/qlocale.h \
-		../../../Qt/6.1.1/mingw81_64/include/QtWidgets/QMenu \
-		../../../Qt/6.1.1/mingw81_64/include/QtWidgets/qmenu.h \
-		../../../Qt/6.1.1/mingw81_64/include/QtWidgets/QMenuBar \
-		../../../Qt/6.1.1/mingw81_64/include/QtWidgets/qmenubar.h \
 		../../../Qt/6.1.1/mingw81_64/include/QtWidgets/QStatusBar \
 		../../../Qt/6.1.1/mingw81_64/include/QtWidgets/qstatusbar.h \
 		../../../Qt/6.1.1/mingw81_64/include/QtWidgets/QToolBar \
@@ -620,6 +617,7 @@ debug/mainwindow.o: ../StreamingGUI/mainwindow.cpp ../StreamingGUI/mainwindow.h 
 		../../../Qt/6.1.1/mingw81_64/include/QtCore/qabstractitemmodel.h \
 		../../../Qt/6.1.1/mingw81_64/include/QtCore/QStringListModel \
 		../../../Qt/6.1.1/mingw81_64/include/QtCore/qstringlistmodel.h \
+		../../../Qt/6.1.1/mingw81_64/include/QtGui/QPixmap \
 		../../../MinGW/MinGW/include/boost/archive/binary_oarchive.hpp \
 		../../../MinGW/MinGW/include/boost/config.hpp \
 		../../../MinGW/MinGW/include/boost/config/user.hpp \

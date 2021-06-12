@@ -13,26 +13,33 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>800</width>
-     <height>25</height>
-    </rect>
-   </property>
-   <widget class="QMenu" name="menuFile">
-    <property name="title">
-     <string>File</string>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>251</x>
+      <y>50</y>
+      <width>280</width>
+      <height>110</height>
+     </rect>
     </property>
-    <addaction name="actionNew_Serie"/>
-    <addaction name="actionNew_Season"/>
-    <addaction name="actionNew_Chapter"/>
-    <addaction name="actionNew_Movie"/>
+    <property name="text">
+     <string/>
+    </property>
    </widget>
-   <addaction name="menuFile"/>
+   <widget class="QPushButton" name="OPEN">
+    <property name="geometry">
+     <rect>
+      <x>351</x>
+      <y>390</y>
+      <width>80</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>OPEN</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <widget class="QToolBar" name="toolBar">
@@ -53,7 +60,7 @@
      <normaloff>:/assets/Assets/Icons/netflix-seeklogo.com.svg</normaloff>:/assets/Assets/Icons/netflix-seeklogo.com.svg</iconset>
    </property>
    <property name="text">
-    <string>New Serie</string>
+    <string>Nuevo</string>
    </property>
   </action>
   <action name="actionNew_Season">
