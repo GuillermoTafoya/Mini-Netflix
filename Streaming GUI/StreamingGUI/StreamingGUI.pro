@@ -16,6 +16,7 @@ SOURCES += \
 
 HEADERS += \
     ../../Streaming/Streaming/Capitulo.h \
+    ../../Streaming/Streaming/Contenedor.h \
     ../../Streaming/Streaming/Pelicula.h \
     ../../Streaming/Streaming/Serie.h \
     ../../Streaming/Streaming/Temporada.h \

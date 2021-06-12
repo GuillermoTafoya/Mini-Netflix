@@ -6,12 +6,19 @@
 #include <QPixmap>
 
 #include <iostream>
+
 // std
 #include <vector>
 #include <fstream>
 #include <string>
+
+// c++ 17
+#include <variant>
+
+// Windows
 #include <windows.h>
 #include <shellapi.h>
+
 
 // include headers from boost
 #include <boost/archive/binary_oarchive.hpp>
@@ -26,12 +33,15 @@
 #include "Temporada.h"
 #include "Serie.h"
 
+
+std::vector<std::variant<Capitulo,Pelicula>> listaCompleta;
+
 using string = std::string;
 
 //Pelicula AntMan = Pelicula("Antman", "https:/drive.google.com/file/d/1BoidnRTk4hAKqo5wFTxM4wYTBnWAoAx2/view?usp=sharing",
 //        "Accion", 120, 4, "Un wey");
 
-Pelicula AntMan = Pelicula("Antman", "E:/Dev/Streaming/Streaming/assets/When It's OK to Violate Privacy.mp4",
+Pelicula AntMan = Pelicula("Antman", "https:/drive.google.com/file/d/1BoidnRTk4hAKqo5wFTxM4wYTBnWAoAx2/view?usp=sharing",
         "Accion", 120, 4, "Un wey");
 
 
@@ -44,7 +54,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
 
-    this->setWindowTitle("Metflix");
+    this->setWindowTitle("Mini Netflix");
 
     QPixmap pix("E:/Dev/Streaming GUI/StreamingGUI/Assets/Icons/Metflix.png");
     //ui->label->setAlignment(Qt::AlignCenter);
@@ -65,13 +75,8 @@ MainWindow::~MainWindow()
 
 
 
-
-
-
-
-
-
-
-
-
+void MainWindow::on_OPEN_clicked()
+{
+    AntMan.play();
+}
 
