@@ -118,6 +118,8 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>E:\Dev\boost_1_76_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard_C>ISO C++17 Standard (/std:c++17)</LanguageStandard_C>
+      <AdditionalOptions>/std:c++latest %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -146,6 +148,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Capitulo.h" />
+    <ClInclude Include="LinkedList.h" />
     <ClInclude Include="Pelicula.h" />
     <ClInclude Include="Serie.h" />
     <ClInclude Include="Temporada.h" />

@@ -7,6 +7,9 @@
 #include <vector>
 #include <fstream>
 #include <string>
+#include <windows.h>
+#include <shellapi.h>
+#include <variant>
 
 // include headers from boost
 #include <boost/archive/binary_oarchive.hpp>
@@ -23,6 +26,7 @@
 
 
 #include <stdlib.h>
+#include "LinkedList.h"
 using string = std::string;
 
 
@@ -33,7 +37,12 @@ boost::filesystem::path p = boost::filesystem::current_path(); // Construct the 
 
 int main()
 {
+    
+    Pelicula AntMan = Pelicula("Antman", "https://drive.google.com/file/d/1BoidnRTk4hAKqo5wFTxM4wYTBnWAoAx2/view?usp=sharing",
+        "Accion", 120, 4, "Un wey");
 
+
+    
     string src = "E:\\Dev\\Streaming\\Streaming\\assets\\";
     Capitulo video1 = Capitulo("Paradoja del abuelo", src + "Solution to the Grandfather Paradox.mp4", "Fisica" ,2.45, 4, 1,1,"Fisica en un minuto");
     Capitulo video2 = Capitulo("Privacidad", src + "When It's OK to Violate Privacy.mp4", "Fisica", 2.45, 4, 1, 1, "Fisica en un minuto");
@@ -48,12 +57,24 @@ int main()
 
     prueba.aniadirCapitulo(video1);
     prueba.aniadirCapitulo(video2);
+
+    Serie Fisica = Serie();
+
+    Fisica.setNombreDeSerie("Fisica");
+
+
+
+
+    std::vector<std::variant<Serie,Pelicula>> listaCompleta;
+
+    listaCompleta.push_back(Fisica);
+    listaCompleta.push_back(AntMan);
     
     std::cout << "write data" << '\n';
     {
         std::ofstream ofs("data.dat");
         boost::archive::binary_oarchive out_arch(ofs);
-        out_arch << prueba;
+        out_arch << listaCompleta;
     }
 
     std::cout << "read data" << '\n';
@@ -66,20 +87,14 @@ int main()
         Temporada prueba2;
         boost::archive::binary_iarchive in_arch(ifs);
 
-        in_arch >> prueba2;
+        std::vector<std::variant<Serie, Pelicula>> listaCompletaLeida;
 
-        std::cout << std::endl << "Descripcion de capitulo:" << std::endl;
-        prueba2.playCapitulo("Privacidad");
-        prueba2.describeCapitulo("Privacidad");
+        in_arch >> listaCompletaLeida;
 
-        std::cout << std::endl << "Descripcion de capitulo:" << std::endl;
 
-        //prueba2.playCapitulo(0); // solo se muestra el ultimo video en ser reproducido
-        prueba2.describeCapitulo(0);
 
-        std::cout << std::endl << "Descripcion de la serie:" << std::endl;
 
-        prueba2.describe();
+        
     }
 
     

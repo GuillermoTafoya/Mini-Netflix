@@ -66,9 +66,17 @@ Video::Video(string Nombre, string Path, string Genero, float Duracion, float Ra
 }
 
 void Video::play() {
-    string path_local = "\"\"" + this->path + "\"\"";
-    const char* filename = path_local.c_str();
-    system(filename);
+    if (this->path[1] == ':') {
+        string path_local = "\"\"" + this->path + "\"\"";
+        const char* filename = path_local.c_str();
+        system(filename);
+    }
+    else {
+        std::wstring stemp = std::wstring(this->path.begin(), this->path.end());
+        LPCWSTR sw = stemp.c_str();
+        ShellExecute(0, 0, sw, 0, 0, SW_SHOW);
+    }
+    
 }
 
 int Video::getUsuariosCalificados() {
