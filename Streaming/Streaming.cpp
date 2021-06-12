@@ -9,13 +9,14 @@
 #include <string>
 #include <windows.h>
 #include <shellapi.h>
-#include <variant>
+
 
 // include headers from boost
 #include <boost/archive/binary_oarchive.hpp>
 #include <boost/archive/binary_iarchive.hpp>
 #include <boost/serialization/vector.hpp>
 #include "boost/filesystem.hpp"  
+
 
 //Headers
 #include "Video.h"
@@ -27,6 +28,7 @@
 
 #include <stdlib.h>
 #include "LinkedList.h"
+#include "Contenedor.h"
 using string = std::string;
 
 
@@ -51,7 +53,7 @@ int main()
     video1.calificar(2.5);
 
     Temporada prueba = Temporada();
-    prueba.setNumeroDeTemporada(1);
+    prueba.setNumeroDeTemporada(0);
 
     prueba.setSerieALaQuePertenece("Fisica: la serie");
 
@@ -62,13 +64,15 @@ int main()
 
     Fisica.setNombreDeSerie("Fisica");
 
+    Fisica.aniadirTemoporada(prueba);
 
 
 
-    std::vector<std::variant<Serie,Pelicula>> listaCompleta;
 
-    listaCompleta.push_back(Fisica);
-    listaCompleta.push_back(AntMan);
+    std::vector<Contenedor> listaCompleta;
+
+    listaCompleta.push_back(Contenedor(Fisica));
+    listaCompleta.push_back(Contenedor(AntMan));
     
     std::cout << "write data" << '\n';
     {
@@ -87,10 +91,14 @@ int main()
         Temporada prueba2;
         boost::archive::binary_iarchive in_arch(ifs);
 
-        std::vector<std::variant<Serie, Pelicula>> listaCompletaLeida;
+        std::vector<Contenedor>  listaCompletaLeida;
 
         in_arch >> listaCompletaLeida;
 
+
+        Serie FisicaLeida = listaCompletaLeida[0].getSerie();
+
+        FisicaLeida.getTemporada(0).playCapitulo("Paradoja del abuelo");
 
 
 

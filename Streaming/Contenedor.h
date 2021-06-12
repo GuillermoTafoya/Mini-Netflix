@@ -7,13 +7,39 @@ private:
 	bool isSerie = false;
 	Serie contenidoSerie;
 	Pelicula contenidoPelicula;
+
+	friend class boost::serialization::access;
+	template<class Archive>
+	void serialize(Archive& ar, const unsigned int version)
+	{
+
+		ar& isSerie;
+		ar& contenidoSerie;
+		ar& contenidoPelicula;
+
+	}
 public:
-	template <typename T>
-	T getContenido() {
+
+	Contenedor() {};
+	Contenedor(Serie s) {
+		this->isSerie = true;
+		this->contenidoSerie = s;
+	}
+
+	Contenedor(Pelicula p) {
+		this->isSerie = false;
+		this->contenidoPelicula = p;
+	}
+
+
+	Serie getSerie() {
 		if (this->isSerie) {
 			return this->contenidoSerie;
 		}
-		else {
+	}
+
+	Pelicula getPelicula() {
+		if (!this->isSerie) {
 			return this->contenidoPelicula;
 		}
 	}
