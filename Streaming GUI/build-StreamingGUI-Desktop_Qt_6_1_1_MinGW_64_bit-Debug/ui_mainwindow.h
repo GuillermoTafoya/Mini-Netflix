@@ -12,9 +12,12 @@
 #include <QtCore/QVariant>
 #include <QtGui/QAction>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QScrollArea>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
@@ -31,6 +34,15 @@ public:
     QWidget *centralwidget;
     QLabel *label;
     QPushButton *OPEN;
+    QScrollArea *scrollArea;
+    QWidget *scrollAreaWidgetContents;
+    QListWidget *listWidget;
+    QPushButton *RETURN;
+    QPushButton *DELETE;
+    QComboBox *comboBox;
+    QPushButton *Refresh;
+    QPushButton *Registrar;
+    QPushButton *pushButton;
     QStatusBar *statusbar;
     QToolBar *toolBar;
 
@@ -57,7 +69,36 @@ public:
         label->setGeometry(QRect(251, 50, 280, 110));
         OPEN = new QPushButton(centralwidget);
         OPEN->setObjectName(QString::fromUtf8("OPEN"));
-        OPEN->setGeometry(QRect(351, 390, 80, 25));
+        OPEN->setGeometry(QRect(270, 450, 80, 25));
+        scrollArea = new QScrollArea(centralwidget);
+        scrollArea->setObjectName(QString::fromUtf8("scrollArea"));
+        scrollArea->setGeometry(QRect(220, 220, 341, 191));
+        scrollArea->setWidgetResizable(true);
+        scrollAreaWidgetContents = new QWidget();
+        scrollAreaWidgetContents->setObjectName(QString::fromUtf8("scrollAreaWidgetContents"));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 339, 189));
+        listWidget = new QListWidget(scrollAreaWidgetContents);
+        listWidget->setObjectName(QString::fromUtf8("listWidget"));
+        listWidget->setGeometry(QRect(0, 0, 341, 191));
+        scrollArea->setWidget(scrollAreaWidgetContents);
+        RETURN = new QPushButton(centralwidget);
+        RETURN->setObjectName(QString::fromUtf8("RETURN"));
+        RETURN->setGeometry(QRect(430, 450, 80, 25));
+        DELETE = new QPushButton(centralwidget);
+        DELETE->setObjectName(QString::fromUtf8("DELETE"));
+        DELETE->setGeometry(QRect(450, 180, 80, 25));
+        comboBox = new QComboBox(centralwidget);
+        comboBox->setObjectName(QString::fromUtf8("comboBox"));
+        comboBox->setGeometry(QRect(10, 20, 151, 24));
+        Refresh = new QPushButton(centralwidget);
+        Refresh->setObjectName(QString::fromUtf8("Refresh"));
+        Refresh->setGeometry(QRect(540, 180, 80, 25));
+        Registrar = new QPushButton(centralwidget);
+        Registrar->setObjectName(QString::fromUtf8("Registrar"));
+        Registrar->setGeometry(QRect(170, 20, 80, 25));
+        pushButton = new QPushButton(centralwidget);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        pushButton->setGeometry(QRect(40, 310, 80, 25));
         MainWindow->setCentralWidget(centralwidget);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -82,6 +123,11 @@ public:
         actionNew_Movie->setText(QCoreApplication::translate("MainWindow", "New Movie", nullptr));
         label->setText(QString());
         OPEN->setText(QCoreApplication::translate("MainWindow", "OPEN", nullptr));
+        RETURN->setText(QCoreApplication::translate("MainWindow", "RETURN", nullptr));
+        DELETE->setText(QCoreApplication::translate("MainWindow", "DELETE", nullptr));
+        Refresh->setText(QCoreApplication::translate("MainWindow", "Refresh", nullptr));
+        Registrar->setText(QCoreApplication::translate("MainWindow", "Registrar", nullptr));
+        pushButton->setText(QCoreApplication::translate("MainWindow", "Reset", nullptr));
         toolBar->setWindowTitle(QCoreApplication::translate("MainWindow", "toolBar", nullptr));
     } // retranslateUi
 

@@ -12,7 +12,8 @@ CONFIG += c++11
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    pelicularegistro.cpp
 
 HEADERS += \
     ../../Streaming/Streaming/Capitulo.h \
@@ -21,10 +22,12 @@ HEADERS += \
     ../../Streaming/Streaming/Serie.h \
     ../../Streaming/Streaming/Temporada.h \
     ../../Streaming/Streaming/Video.h \
-    mainwindow.h
+    mainwindow.h \
+    pelicularegistro.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    pelicularegistro.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -45,7 +48,7 @@ LIBS += -L"E:/MinGW/MinGW/lib" \
 
 
 INCLUDEPATH += \
-    "E:/Dev/Streaming/Streaming"
+    "E:/Dev/Streaming/Streaming" \
     "E:/Dev/Streaming GUI/StreamingGUI/Assets/Icons"
 
 

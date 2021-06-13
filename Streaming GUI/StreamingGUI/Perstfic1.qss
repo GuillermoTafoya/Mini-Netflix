@@ -1,0 +1,206 @@
+QMainWindow{
+  background-image: url(E:/Dev/Streaming GUI/StreamingGUI/Assets/bg.jpg);
+}
+QWidget
+{
+
+        background-color: black;
+
+}
+
+QListWidget{
+background-color: black;
+}
+
+
+
+QLabel
+{
+        background-color: transparent;
+        color: #333333;
+
+}
+
+
+
+QPushButton
+{
+        background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:1, stop:0 rgba(181, 2, 2, 1),stop:1 rgba(110, 3, 3, 1));
+        color: #fff;
+        border: 0px;
+        border-radius: 5px;
+        padding: 5px;
+}
+
+
+QPushButton::hover
+{
+        background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:1, stop:0 rgba(203, 0, 0, 1),stop:1 rgba(181, 2, 2, 1));
+        color: #fff;
+
+}
+
+
+QPushButton::pressed
+{
+        background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:1, stop:0 rgba(241, 3, 3, 1),stop:1 rgba(203, 0, 0, 1));
+        color: #fff;
+        border: 0px;
+        border-radius: 5px;
+        padding: 5px;
+
+}
+
+
+
+QLineEdit
+{
+        background-color: #bfbfbf;
+        color: #000000;
+        border-style: solid;
+        border-color: #141414;
+        border-radius: 5px;
+        padding-left: 10px;
+
+}
+
+
+
+QListView{
+        background-color: transparent;
+        font-size: 12pt;
+        border: none;
+        color: #fff;
+        show-decoration-selected: 0;
+        padding-left: px;
+
+}
+
+
+QListView::item:selected{
+        color: #fff;
+        font-weight: bold;
+        background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:1, stop:0 rgba(220, 0, 0, 0.8),stop:1 rgba(180, 0, 0, 0.8));
+        border: none;
+        border-radius: 0px;
+
+}
+
+
+QListView::item:!selected{
+        color: #fff;
+        background-color: transparent;
+        border: none;
+        border-radius: 0px;
+
+}
+
+
+QListView::item:!selected:hover{
+        color: #fff;
+        background-color: rgba(51, 51, 51, 0.5);
+        border: none;
+        border-radius: 0px;
+
+}
+
+
+
+QScrollBar:vertical
+{
+        border: none;
+        width: 10px;
+
+}
+
+
+QScrollBar::handle:vertical
+{
+        border: none;
+        border-radius : 0px;
+        background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:1, stop:0 rgba(170, 0, 0, 1),stop:1 rgba(130, 0, 0, 1));
+        min-height: 50px;
+        width : 16px;
+
+}
+
+
+QScrollBar::handle:vertical:pressed
+{
+        background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:1, stop:0 rgba(229, 9, 20, 1),stop:1 rgba(190, 9, 20, 1));
+
+}
+
+
+QScrollBar::add-line:vertical
+{
+        border: none;
+        background: transparent;
+        height: 0px;
+        subcontrol-position: bottom;
+        subcontrol-origin: margin;
+
+}
+
+
+QScrollBar::add-line:vertical:hover
+{
+        background-color: transparent;
+
+}
+
+
+QScrollBar::add-line:vertical:pressed
+{
+        background-color: #3f3f3f;
+
+}
+
+
+QScrollBar::sub-line:vertical
+{
+        border: none;
+        background: transparent;
+        height: 0px;
+
+}
+
+
+QScrollBar::sub-line:vertical:hover
+{
+        background-color: transparent;
+
+}
+
+
+QScrollBar::sub-line:vertical:pressed
+{
+        background-color: #3f3f3f;
+
+}
+
+
+QScrollBar::up-arrow:vertical
+{
+        width: 0px;
+        height: 0px;
+        background: transparent;
+
+}
+
+
+QScrollBar::down-arrow:vertical
+{
+        width: 0px;
+        height: 0px;
+        background: transparent;
+
+}
+
+
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical
+{
+        background-color: #333333;
+        width: 11px;;
+
+}
