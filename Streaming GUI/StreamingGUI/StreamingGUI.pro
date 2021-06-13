@@ -11,9 +11,12 @@ CONFIG += c++11
 
 
 SOURCES += \
+    capituloregistro.cpp \
     main.cpp \
     mainwindow.cpp \
-    pelicularegistro.cpp
+    pelicularegistro.cpp \
+    registrotemporada.cpp \
+    serieregistro.cpp
 
 HEADERS += \
     ../../Streaming/Streaming/Capitulo.h \
@@ -22,12 +25,18 @@ HEADERS += \
     ../../Streaming/Streaming/Serie.h \
     ../../Streaming/Streaming/Temporada.h \
     ../../Streaming/Streaming/Video.h \
+    capituloregistro.h \
     mainwindow.h \
-    pelicularegistro.h
+    pelicularegistro.h \
+    registrotemporada.h \
+    serieregistro.h
 
 FORMS += \
+    capituloregistro.ui \
     mainwindow.ui \
-    pelicularegistro.ui
+    pelicularegistro.ui \
+    registrotemporada.ui \
+    serieregistro.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

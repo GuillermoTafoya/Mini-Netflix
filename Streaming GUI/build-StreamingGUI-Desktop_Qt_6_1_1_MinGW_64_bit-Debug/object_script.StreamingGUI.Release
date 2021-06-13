@@ -1,0 +1,12 @@
+release/capituloregistro.o
+release/main.o
+release/mainwindow.o
+release/pelicularegistro.o
+release/registrotemporada.o
+release/serieregistro.o
+release/qrc_resources.o
+release/moc_capituloregistro.o
+release/moc_mainwindow.o
+release/moc_pelicularegistro.o
+release/moc_registrotemporada.o
+release/moc_serieregistro.o

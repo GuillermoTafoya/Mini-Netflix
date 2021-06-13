@@ -18,7 +18,7 @@
     <property name="geometry">
      <rect>
       <x>251</x>
-      <y>50</y>
+      <y>60</y>
       <width>280</width>
       <height>110</height>
      </rect>
@@ -30,22 +30,22 @@
    <widget class="QPushButton" name="OPEN">
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>450</y>
+      <x>460</x>
+      <y>430</y>
       <width>80</width>
       <height>25</height>
      </rect>
     </property>
     <property name="text">
-     <string>OPEN</string>
+     <string>Abrir</string>
     </property>
    </widget>
    <widget class="QScrollArea" name="scrollArea">
     <property name="geometry">
      <rect>
-      <x>220</x>
-      <y>220</y>
-      <width>341</width>
+      <x>150</x>
+      <y>230</y>
+      <width>481</width>
       <height>191</height>
      </rect>
     </property>
@@ -57,7 +57,7 @@
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>339</width>
+       <width>479</width>
        <height>189</height>
       </rect>
      </property>
@@ -66,7 +66,7 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>341</width>
+        <width>481</width>
         <height>191</height>
        </rect>
       </property>
@@ -76,27 +76,27 @@
    <widget class="QPushButton" name="RETURN">
     <property name="geometry">
      <rect>
-      <x>430</x>
-      <y>450</y>
+      <x>550</x>
+      <y>430</y>
       <width>80</width>
       <height>25</height>
      </rect>
     </property>
     <property name="text">
-     <string>RETURN</string>
+     <string>←</string>
     </property>
    </widget>
    <widget class="QPushButton" name="DELETE">
     <property name="geometry">
      <rect>
-      <x>450</x>
-      <y>180</y>
+      <x>550</x>
+      <y>200</y>
       <width>80</width>
       <height>25</height>
      </rect>
     </property>
     <property name="text">
-     <string>DELETE</string>
+     <string>Borrar</string>
     </property>
    </widget>
    <widget class="QComboBox" name="comboBox">
@@ -112,8 +112,8 @@
    <widget class="QPushButton" name="Refresh">
     <property name="geometry">
      <rect>
-      <x>540</x>
-      <y>180</y>
+      <x>460</x>
+      <y>200</y>
       <width>80</width>
       <height>25</height>
      </rect>
@@ -133,19 +133,6 @@
     </property>
     <property name="text">
      <string>Registrar</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>310</y>
-      <width>80</width>
-      <height>25</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Reset</string>
     </property>
    </widget>
   </widget>

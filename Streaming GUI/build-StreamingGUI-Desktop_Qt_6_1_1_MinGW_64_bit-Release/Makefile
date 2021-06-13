@@ -170,6 +170,7 @@ Makefile: ../StreamingGUI/StreamingGUI.pro ../../../Qt/6.1.1/mingw81_64/mkspecs/
 		../../../Qt/6.1.1/mingw81_64/mkspecs/features/qt_config.prf \
 		../../../Qt/6.1.1/mingw81_64/mkspecs/win32-g++/qmake.conf \
 		../../../Qt/6.1.1/mingw81_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../../Qt/6.1.1/mingw81_64/mkspecs/features/exclusive_builds.prf \
 		../../../Qt/6.1.1/mingw81_64/mkspecs/features/toolchain.prf \
 		../../../Qt/6.1.1/mingw81_64/mkspecs/features/default_pre.prf \
@@ -199,8 +200,8 @@ Makefile: ../StreamingGUI/StreamingGUI.pro ../../../Qt/6.1.1/mingw81_64/mkspecs/
 		../../../Qt/6.1.1/mingw81_64/lib/Qt6Gui.prl \
 		../../../Qt/6.1.1/mingw81_64/lib/Qt6Core.prl \
 		../../../Qt/6.1.1/mingw81_64/lib/Qt6EntryPoint.prl \
-		.qmake.stash \
-		../../../Qt/6.1.1/mingw81_64/mkspecs/features/build_pass.prf
+		../../../Qt/6.1.1/mingw81_64/mkspecs/features/build_pass.prf \
+		../StreamingGUI/resources.qrc
 	$(QMAKE) -o Makefile ..\StreamingGUI\StreamingGUI.pro -spec win32-g++ "CONFIG+=qtquickcompiler"
 ../../../Qt/6.1.1/mingw81_64/mkspecs/features/spec_pre.prf:
 ../../../Qt/6.1.1/mingw81_64/mkspecs/features/device_config.prf:
@@ -302,6 +303,7 @@ Makefile: ../StreamingGUI/StreamingGUI.pro ../../../Qt/6.1.1/mingw81_64/mkspecs/
 ../../../Qt/6.1.1/mingw81_64/mkspecs/features/qt_config.prf:
 ../../../Qt/6.1.1/mingw81_64/mkspecs/win32-g++/qmake.conf:
 ../../../Qt/6.1.1/mingw81_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../../Qt/6.1.1/mingw81_64/mkspecs/features/exclusive_builds.prf:
 ../../../Qt/6.1.1/mingw81_64/mkspecs/features/toolchain.prf:
 ../../../Qt/6.1.1/mingw81_64/mkspecs/features/default_pre.prf:
@@ -331,8 +333,8 @@ Makefile: ../StreamingGUI/StreamingGUI.pro ../../../Qt/6.1.1/mingw81_64/mkspecs/
 ../../../Qt/6.1.1/mingw81_64/lib/Qt6Gui.prl:
 ../../../Qt/6.1.1/mingw81_64/lib/Qt6Core.prl:
 ../../../Qt/6.1.1/mingw81_64/lib/Qt6EntryPoint.prl:
-.qmake.stash:
 ../../../Qt/6.1.1/mingw81_64/mkspecs/features/build_pass.prf:
+../StreamingGUI/resources.qrc:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ..\StreamingGUI\StreamingGUI.pro -spec win32-g++ "CONFIG+=qtquickcompiler"
 

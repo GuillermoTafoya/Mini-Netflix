@@ -32,7 +32,16 @@
 
 //modals
 #include "pelicularegistro.h"
+#include "serieregistro.h"
 #include "ui_pelicularegistro.h"
+#include "ui_serieregistro.h"
+
+#include "registrotemporada.h"
+#include "ui_registrotemporada.h"
+
+#include "capituloregistro.h"
+#include "ui_capituloregistro.h"
+
 
 
 
@@ -58,6 +67,7 @@ MainWindow::MainWindow(QWidget *parent)
     this->setWindowTitle("Mini Netflix");
 
     QPixmap pix("E:/Dev/Streaming GUI/StreamingGUI/Assets/Icons/Metflix.png");
+
     //ui->label->setAlignment(Qt::AlignCenter);
     int w = ui->label->width(), h = ui->label->height();
 
@@ -89,7 +99,7 @@ void fill(Ui::MainWindow &ui){
     for (unsigned int i = 0; i<listaCompleta.size(); i++){
         if ( listaCompleta[i].type()==true){ // Se trata de una serie "E:\Dev\Streaming GUI\StreamingGUI\Assets\Icons\folder.png"
             QListWidgetItem *item = new QListWidgetItem(QIcon("E:/Dev/Streaming GUI/StreamingGUI/Assets/Icons/folder.png"),
-                                                        QString::fromStdString (listaCompleta[i].getSerie().getNombreDeSerie() ));
+                                                        QString::fromStdString (listaCompleta[i].getSerie()->getNombreDeSerie() ));
 
             ui.listWidget->addItem(item);
 
@@ -97,7 +107,7 @@ void fill(Ui::MainWindow &ui){
 
         } else{ // Se trata de una pelicula
             QListWidgetItem *item = new QListWidgetItem(QIcon("E:/Dev/Streaming GUI/StreamingGUI/Assets/Icons/icono pelicula.png"),
-                                                        QString::fromStdString( listaCompleta[i].getPelicula().getName() ));
+                                                        QString::fromStdString( listaCompleta[i].getPelicula()->getName() ));
 
             ui.listWidget->addItem(item);
 
@@ -148,7 +158,7 @@ if (ui->listWidget->currentRow() == -1){
 
      if ( listaCompleta[index].type()==true){ // Se selecciona una serie
          ui->listWidget->clear();
-         for ( int i = 0; i < listaCompleta[index].getSerie().getTemporadasTotales(); i++){
+         for ( int i = 0; i < listaCompleta[index].getSerie()->getTemporadasTotales(); i++){
              txt = "Temporada " + std::to_string(i);
 
              QListWidgetItem *item = new QListWidgetItem(QIcon("E:/Dev/Streaming GUI/StreamingGUI/Assets/Icons/folder.png"),
@@ -161,7 +171,7 @@ if (ui->listWidget->currentRow() == -1){
 
      } else{ // Se selecciona una pelicula
 
-         listaCompleta[index].getPelicula().play();
+         listaCompleta[index].getPelicula()->play();
 
      }
  } else if(selected == 1){ // Se selecciono una temporada, mostrar capitulos
@@ -169,8 +179,8 @@ if (ui->listWidget->currentRow() == -1){
      ui->listWidget->clear();
 
 
-     for (int i = 0; i < listaCompleta[idxSerie].getSerie().getTemporada(index).getCapitulosTotales(); i++){
-        txt = listaCompleta[idxSerie].getSerie().getTemporada(index).getCapitulo(i).getName();
+     for (int i = 0; i < listaCompleta[idxSerie].getSerie()->getTemporada(index)->getCapitulosTotales(); i++){
+        txt = listaCompleta[idxSerie].getSerie()->getTemporada(index)->getCapitulo(i).getName();
          QListWidgetItem *item = new QListWidgetItem(QIcon("E:/Dev/Streaming GUI/StreamingGUI/Assets/Icons/icono pelicula.png"),
                                                      QString::fromStdString(txt) );
          ui->listWidget->addItem(item);
@@ -181,7 +191,7 @@ if (ui->listWidget->currentRow() == -1){
  }
  else if(selected == 2){ // Se selecciono un capitulo
 
-      listaCompleta[idxSerie].getSerie().getTemporada(idxTemporada).playCapitulo(index);
+      listaCompleta[idxSerie].getSerie()->getTemporada(idxTemporada)->playCapitulo(index);
 
   }
 
@@ -207,7 +217,7 @@ void MainWindow::on_RETURN_clicked()
        string txt;
 
 
-       for ( int i = 0; i < listaCompleta[idxSerie].getSerie().getTemporadasTotales(); i++){
+       for ( int i = 0; i < listaCompleta[idxSerie].getSerie()->getTemporadasTotales(); i++){
            txt = "Temporada " + std::to_string(i);
 
            QListWidgetItem *item = new QListWidgetItem(QIcon("E:/Dev/Streaming GUI/StreamingGUI/Assets/Icons/folder.png"),
@@ -254,14 +264,14 @@ void MainWindow::on_DELETE_clicked()
 
         std::cout << "acceder 1\n";
 
-         listaCompleta[idxSerie].getSerie().eliminarTemporada(index+1);
+         listaCompleta[idxSerie].getSerie()->eliminarTemporada(index+1);
          std::cout << "eliminado 1\n";
          save();
          reload();
          ui->listWidget->clear();
 
 
-         for ( int i = 0; i < listaCompleta[idxSerie].getSerie().getTemporadasTotales(); i++){
+         for ( int i = 0; i < listaCompleta[idxSerie].getSerie()->getTemporadasTotales(); i++){
              txt = "Temporada " + std::to_string(i);
 
              QListWidgetItem *item = new QListWidgetItem(QIcon("E:/Dev/Streaming GUI/StreamingGUI/Assets/Icons/folder.png"),
@@ -275,13 +285,13 @@ void MainWindow::on_DELETE_clicked()
      else if(selected == 2){ // Se selecciono un capitulo
            std::cout << "acceder 2\n";
 
-          listaCompleta[idxSerie].getSerie().getTemporada(idxTemporada).eliminarCapitulo(index+1);
+          listaCompleta[idxSerie].getSerie()->getTemporada(idxTemporada)->eliminarCapitulo(index+1);
           save();
           reload();
           ui->listWidget->clear();
 
-          for (int i = 0; i < listaCompleta[idxSerie].getSerie().getTemporada(idxTemporada).getCapitulosTotales(); i++){
-             txt = listaCompleta[idxSerie].getSerie().getTemporada(idxTemporada).getCapitulo(i).getName();
+          for (int i = 0; i < listaCompleta[idxSerie].getSerie()->getTemporada(idxTemporada)->getCapitulosTotales(); i++){
+             txt = listaCompleta[idxSerie].getSerie()->getTemporada(idxTemporada)->getCapitulo(i).getName();
               QListWidgetItem *item = new QListWidgetItem(QIcon("E:/Dev/Streaming GUI/StreamingGUI/Assets/Icons/icono pelicula.png"),
                                                           QString::fromStdString(txt) );
               ui->listWidget->addItem(item);
@@ -292,7 +302,6 @@ void MainWindow::on_DELETE_clicked()
 
 
 }
-
 
 
 void PeliculaRegistro::on_pushButton_clicked()
@@ -335,11 +344,52 @@ void MainWindow::on_Registrar_clicked()
         pelicularegistro.exec();
         }
 
-    /*if(ui->comboBox->currentText()=="Serie"){
+    if(ui->comboBox->currentText()=="Serie"){
         SerieRegistro serieregistro;
         serieregistro.setModal(true);
         serieregistro.exec();
-        }*/
+        }
+
+    if(ui->comboBox->currentText()=="Temporada"){
+        //SerieRegistro serieregistro;
+        //serieregistro.setModal(true);
+        //serieregistro.exec();
+        if (ui->listWidget->currentRow() == -1){
+            return;
+        }
+
+         int index = ui->listWidget->currentRow();
+
+         if (selected == 0){ // NO ha seleccionado una serie o pelicula
+             idxSerie = index;
+
+             if ( listaCompleta[index].type()==true){ // Se selecciona una serie
+                 //Registrar temporada
+                 RegistroTemporada RegistroTemporada;
+                 RegistroTemporada.setModal(true);
+                 RegistroTemporada.exec();
+            }
+        }
+    }
+
+    if(ui->comboBox->currentText()=="Capitulo"){
+        //SerieRegistro serieregistro;
+        //serieregistro.setModal(true);
+        //serieregistro.exec();
+        int index = ui->listWidget->currentRow();
+
+        if (selected == 1){
+            idxTemporada = index;
+
+            CapituloRegistro CapituloRegistro;
+            CapituloRegistro.setModal(true);
+            CapituloRegistro.exec();
+       }
+    }
+
+
+
+
 }
 
 
@@ -349,47 +399,67 @@ void MainWindow::on_Refresh_clicked()
 }
 
 
-void MainWindow::on_pushButton_clicked()
+
+
+
+
+void SerieRegistro::on_GuardarSerie_clicked()
 {
-    Pelicula AntMan = Pelicula("Antman", "https://drive.google.com/file/d/1BoidnRTk4hAKqo5wFTxM4wYTBnWAoAx2/view?usp=sharing",
-            "Accion", 120, 4, "Un wey");
+    QString name = ui->lineEdit->text();
+    QString genero = ui->lineEdit_2->text();
+     std::string names = name.toUtf8().constData();
+     std::string generos = genero.toUtf8().constData();
+     Serie ser = Serie();
+     ser.setNombreDeSerie(names);
+     ser.setGeneroDeSerie(generos);
+         Contenedor cont(ser);
+             listaCompleta.push_back(cont);
+             std::ofstream ofs("data.dat");
+             boost::archive::binary_oarchive out_arch(ofs);
+             out_arch << listaCompleta;
+}
+
+void RegistroTemporada::on_RegistrarTemporada_clicked()
+{
+    Temporada temp;
+    temp.setNumeroDeTemporada(listaCompleta[idxSerie].getSerie()->getTemporadasTotales());
+    temp.setSerieALaQuePertenece(listaCompleta[idxSerie].getSerie()->getNombreDeSerie());
+
+    listaCompleta[idxSerie].getSerie()->aniadirTemporada(temp);
+
+
+    save();
 
 
 
-        string src = "E:\\Dev\\Streaming\\Streaming\\assets\\";
-        Capitulo video1 = Capitulo("Paradoja del abuelo", src + "Solution to the Grandfather Paradox.mp4", "Fisica" ,2.45, 4, 1,1,"Fisica en un minuto");
-        Capitulo video2 = Capitulo("Privacidad", src + "When It's OK to Violate Privacy.mp4", "Fisica", 2.45, 4, 1, 1, "Fisica en un minuto");
+}
 
-        video1.calificar(4.7);
-        video1.calificar(2.5);
 
-        Temporada prueba = Temporada();
-        prueba.setNumeroDeTemporada(0);
+void CapituloRegistro::on_GuardarCapitulo_clicked()
+{
 
-        prueba.setSerieALaQuePertenece("Fisica: la serie");
-
-        prueba.aniadirCapitulo(video1);
-        prueba.aniadirCapitulo(video2);
-
-        Serie Fisica = Serie();
-
-        Fisica.setNombreDeSerie("Fisica");
-
-        Fisica.aniadirTemoporada(prueba);
+QString name = ui->lineEdit->text();
+std::string names = name.toUtf8().constData();
+QString genero = ui->genero->text();
+std::string generos = genero.toUtf8().constData();
+QString url = ui->url->text();
+std::string urls = url.toUtf8().constData();
+QString duracion = ui->duracion->text();
+std::string duracions = duracion.toUtf8().constData();
+double rating = ui->rating->value();
 
 
 
+Capitulo cap(names, urls,generos, rating, std::stoi(duracions),
+             listaCompleta[idxSerie].getSerie()->getTemporada(idxTemporada)->getCapitulosTotales()+1,
+             idxTemporada,listaCompleta[idxSerie].getSerie()->getNombreDeSerie());
 
-        std::vector<Contenedor> listaCompleta;
+    listaCompleta[idxSerie].getSerie()->getTemporada(idxTemporada)->aniadirCapitulo(cap);
 
-        listaCompleta.push_back(Contenedor(Fisica));
-        listaCompleta.push_back(Contenedor(AntMan));
 
-        std::cout << "write data" << '\n';
-        {
-            std::ofstream ofs("data.dat");
-            boost::archive::binary_oarchive out_arch(ofs);
-            out_arch << listaCompleta;
-        }
+     save();
+
+
+
 }
 

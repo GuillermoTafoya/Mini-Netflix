@@ -9,6 +9,7 @@ PeliculaRegistro::PeliculaRegistro(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setWindowIcon(QIcon("E:/Dev/Streaming GUI/StreamingGUI/Assets/Icons/netflix.png"));
+    this->setWindowTitle("Registrar Pelicula");
 }
 
 PeliculaRegistro::~PeliculaRegistro()

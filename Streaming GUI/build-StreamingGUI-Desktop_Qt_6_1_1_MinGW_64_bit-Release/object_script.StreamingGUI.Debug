@@ -1,0 +1,12 @@
+debug/capituloregistro.o
+debug/main.o
+debug/mainwindow.o
+debug/pelicularegistro.o
+debug/registrotemporada.o
+debug/serieregistro.o
+debug/qrc_resources.o
+debug/moc_capituloregistro.o
+debug/moc_mainwindow.o
+debug/moc_pelicularegistro.o
+debug/moc_registrotemporada.o
+debug/moc_serieregistro.o
