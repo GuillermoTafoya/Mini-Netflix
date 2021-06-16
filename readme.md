@@ -4,4 +4,4 @@ Usarlo como quieras
 No puedes:
 Atribuirte créditos del software
 
-Agradecimientos a TheBlacStrike/WachaPelis por las fuentes audiovisuales para las pruebas.
+Agradecimientos a TheBlacStrike/WashaPelis por las fuentes audiovisuales para las pruebas.
